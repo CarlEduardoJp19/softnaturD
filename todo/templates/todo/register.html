@@ -1,20 +1,41 @@
-<h2>Registro</h2>
-<form method="post">
-    {% csrf_token %}
-    
-    <label for="nombre">Nombre:</label>
-    {{ form.nombre }}<br><br>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'todo/css/panel.css' %}?v={{ timestamp }}">
+</head>
+<body>
+    <div class="contenedor-pagina">
+    <header class="header-registro">
+        <img class="logito" src="../todo/static/todo/img/logo.png">
+    </header>
+    <div class="form-contenedor">
+        <form method="post">
+            <h2 class="txt-form">Formulario Registro</h2>
+            {% csrf_token %}
+            
+            <label for="nombre">Nombre:</label>
+            {{ form.nombre }}<br><br>
 
-    <label for="clave">Clave:</label>
-    {{ form.clave }}<br><br>
+            <label for="clave">Contraseña:</label>
+            {{ form.clave }}<br><br>
 
-    <label for="email">email:</label>
-    {{ form.email }}<br><br>
+            <label for="email">email:</label>
+            {{ form.email }}<br><br>
 
-    <label for="numTelefono">numTelefono:</label>
-    {{ form.numTelefono }}<br><br>
+            <label for="numTelefono">numTelefono:</label>
+            {{ form.numTelefono }}<br><br>
 
-    <button type="submit">Registrarme</button>
-</form>
+            <button type="submit" class="btn-submit">Registrarme</button>
+        </form>
+        <p style="color:red">{{ mensaje }}</p>
+    </div>
+</body>
+</html>
 
-<p style="color:red">{{ mensaje }}</p>
+
+
+

@@ -1,17 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'todo/css/panel.css' %}?v={{ timestamp }}">
+</head>
+<body>
+<div class="contenedor-form">
+    <h2>Login</h2>
+    <form method="post" class="contenedor-login">
+        {% csrf_token %}
 
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
-    
-    <label for="nombre">Nombre:</label>
-    {{ form.nombre }}<br><br>
+        <label for="nombre" class="btn-txt">Nombre:</label>
+        {{ form.nombre }}
 
-    <label for="clave">Clave:</label>
-    {{ form.clave }}<br><br>
+        <label for="clave" class="btn-txt">Clave:</label>
+        {{ form.clave }}
 
-    <button type="submit">Ingresar</button>
+        <button type="submit" class="btn-ingresar">Ingresar</button>
 
-    <h3>Aún no tienes cuenta? <a href="{% url 'register' %}">Registrate</a><h3>
-</form>
+        <div class="txt-register">
+            <p>¿Aún no tienes cuenta? <a class="edit-rgs"href="{% url 'register' %}">Regístrate</a></p>
+        </div>
+    </form>
 
-<p style="color:red">{{ mensaje }}</p>
+    {% if mensaje %}
+    <p style="color:red; margin-top: 10px;">{{ mensaje }}</p>
+    {% endif %}
+</div>
+</body>
+</html>
+
