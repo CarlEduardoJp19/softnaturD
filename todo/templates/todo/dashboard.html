@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'todo/css/panel.css' %}">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <header>
+            <div class="header-cont">
+                <h2>Dashboard Administrador</h2>
+                <a href="{% url 'logout' %}" class="logout-button">Cerrar sesión</a>
+            </div>
+        </header>
+    
+        <div class="main-content">
+            <div class="menu-column">
+                <ul>
+                    <li><a href="#">Gestión de Usuarios</a></li>
+                    <li><a href="#">Gestión de Productos</a></li>
+                    <li><a href="#">Gestión de Pedidos</a></li>
+                </ul>
+            </div>
+
+            <div class="content-column">
+                <p>Bienvenido al panel de admninistración. Aquí podrás gestionar los usuarios, productos y pedidos.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

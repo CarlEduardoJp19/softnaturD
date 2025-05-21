@@ -1,0 +1,17 @@
+
+<h2>Login</h2>
+<form method="post">
+    {% csrf_token %}
+    
+    <label for="nombre">Nombre:</label>
+    {{ form.nombre }}<br><br>
+
+    <label for="clave">Clave:</label>
+    {{ form.clave }}<br><br>
+
+    <button type="submit">Ingresar</button>
+
+    <h3>Aún no tienes cuenta? <a href="{% url 'register' %}">Registrate</a><h3>
+</form>
+
+<p style="color:red">{{ mensaje }}</p>

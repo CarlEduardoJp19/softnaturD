@@ -1,0 +1,55 @@
+{% extends 'todo/base.html' %}
+{% load static%}
+
+{% block content %}
+    <nav class="navbar">
+        <img src="{% static 'todo/img/logo.png'%}" alt="Logo">
+        <div class="search-box">
+            <input type="text" placeholder="¿Qué estás buscando?">
+            <i class="fa fa-search"></i>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'nosotros' %}">Nosotros</a>
+            <div class="dropdown">
+                <a href="{% url 'producto' %}">Productos</a>
+                <div class="dropdown-content">
+                    <a href="#Colagenos">Colagenos</a>
+                    <a href="#Citratos">Citratos</a>
+                    <a href="#Propoleos">Propoleos</a>
+                    <a href="#Drenadores hepaticos">Drenadores hepaticos</a>
+                    <a href="#Multivitaminicos">Multivitaminicos</a>
+                    <a href="#Purgantes">Purgantes</a>
+                </div>
+            </div>
+            <a href="{% url 'contacto' %}">Contactanos</a>
+        </div>
+        <div class="icons">
+            <i class="fa fa-question-circle"></i>
+            <i class="fa fa-user"></i>
+            <i class="fa fa-shopping-cart"></i>
+        </div>
+    </nav>
+    <div align="center">
+        <br><br>
+        <form >
+            <h2>Formulario</h2>
+            <br><br>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" required>
+            <br><br>
+            <label for="correo">Correo:</label>
+            <input type="email" nombre="correo" required>
+            <br><br>
+            <label for="Asunto">Asunto: </label>
+            <textarea id="Asunto" name="Asunto" rows="" required></textarea>
+            <br><br>
+            <label for="Mensaje">Mensaje: </label>
+            <textarea id="text" name="Mensaje" rows="5"required></textarea>
+            <br>
+            <button class="Enviar" type="submit">Enviar</button>
+            <br><br>
+        </form>
+    <footer>
+        <p>&copy;Página Tienda Naturista Los girasoles 2025</p>
+    </footer>
+{% endblock %}
