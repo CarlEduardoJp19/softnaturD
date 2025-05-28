@@ -1,0 +1,57 @@
+{% extends 'productos/base.html' %}
+{% load static %}
+
+{% block content %}
+    <nav class="navbar">
+        <img src="uploads/products/logoPrin.png" alt="Logo">
+        <div class="search-box">
+            <input type="text" placeholder="¿Qué estás buscando?">
+            <i class="fa fa-search"></i>
+        </div>
+        <div class="nav-links">
+            {% comment %} Aqui realizamos un condicional para que cambie cuando inicia de sesion a cerrar sesion {% endcomment %}
+            {% if usuario_id %}
+                <a href="{% url 'usuarios:logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'usuarios:login' %}">Iniciar sesión</a>
+            {% endif %}
+            <a href="{% url 'usuarios:nosotros' %}">Nosotros</a>
+            <div class="dropdown">
+                <a href="{% url 'productos:producto' %}">Productos</a>
+                <div class="dropdown-content">
+                    <a href="#Colagenos">Colagenos</a>
+                    <a href="#Citratos">Citratos</a>
+                    <a href="#Propoleos">Propoleos</a>
+                    <a href="#Drenadores hepaticos">Drenadores hepaticos</a>
+                    <a href="#Multivitaminicos">Multivitaminicos</a>
+                    <a href="#Purgantes">Purgantes</a>
+                </div>
+            </div>
+            <a href="{% url 'usuarios:contacto' %}">Contactanos</a>
+        </div>
+        <div class="icons">
+            <i class="fa fa-question-circle"></i>
+            <i class="fa fa-user"></i>
+            <i class="fa fa-shopping-cart"></i>
+        </div>
+    </nav>
+    <div>
+        <section class="Productos">
+            {% for product in products %}
+            {% if product_is_sale %}
+            <div class="container-prduc">
+                <div class="container-principal">
+                    <img class="img-produc" src="{{product.img.url}}">
+                </div>
+                <div class="container-info">
+                    <h4 class="name-produc" src="{{product.name}}"></h4>
+                    <h6 class="price-produc" src="{{product.price}}"></h6>
+                </div>
+            </div>
+        </section>
+    <footer>
+        <p>&copy;Página Tienda Naturista Los girasoles 2025</p>
+    </footer>
+    {% endif %}
+    {% endfor %}
+{% endblock %}

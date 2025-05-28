@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todo',
+    'usuarios',
+    'productos',
 ]
 
 MIDDLEWARE = [
@@ -64,10 +66,10 @@ WSGI_APPLICATION = 'Config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'softnaturdb',
-        'USER': 'eduarAdm',
+        'NAME': 'postgres',
+        'USER': 'postgres.uaveomsotjezpqppsqqr',
         'PASSWORD': 'eduaradm123',
-        'HOST': 'localhost',
+        'HOST': 'aws-0-us-east-1.pooler.supabase.com',
         'PORT': '5432',
     }
 }
@@ -113,3 +115,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

@@ -1,0 +1,61 @@
+/* LISTA PRODUCTOS FRONTENDDD --------------------- */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+    text-align: center;
+    color: #28a745;
+    margin-bottom: 25px;
+    }
+
+    label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+    }
+
+    input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    }
+
+    textarea {
+    resize: vertical;
+    }
+
+    .btn-guardar{
+        display: block;
+        margin: 20px auto 0 auto;
+        border-radius: 8px;
+        padding-top: 10px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+        font-weight: bold;
+        background-color: rgb(28, 198, 104);
+    }
+
+    .volver {
+    display: block;
+    margin-top: 20px;
+    color: #28a745;
+    text-decoration: none;
+    font-weight: bold;
+    }
+
+    .volver:hover {
+    text-decoration: underline;
+    }

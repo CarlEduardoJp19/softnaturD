@@ -1,17 +1,17 @@
-{% extends 'todo/base.html' %}
+{% extends 'usuarios/base.html' %}
 {% load static%}
 
 {% block content %}
     <nav class="navbar">
-        <img src="{% static 'todo/img/logo.png'%}" alt="Logo">
+        <img src="{% static 'usuarios/img/logoPrin.png'%}" alt="Logo">
         <div class="search-box">
             <input type="text" placeholder="¿Qué estás buscando?">
             <i class="fa fa-search"></i>
         </div>
         <div class="nav-links">
-            <a href="{% url 'nosotros' %}">Nosotros</a>
+            <a href="{% url 'usuarios:nosotros' %}">Nosotros</a>
             <div class="dropdown">
-                <a href="{% url 'producto' %}">Productos</a>
+                <a href="{% url 'productos:producto' %}">Productos</a>
                 <div class="dropdown-content">
                     <a href="#Colagenos">Colagenos</a>
                     <a href="#Citratos">Citratos</a>
@@ -21,7 +21,7 @@
                     <a href="#Purgantes">Purgantes</a>
                 </div>
             </div>
-            <a href="{% url 'contacto' %}">Contactanos</a>
+            <a href="{% url 'usuarios:contacto' %}">Contactanos</a>
         </div>
         <div class="icons">
             <i class="fa fa-question-circle"></i>
