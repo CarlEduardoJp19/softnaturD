@@ -66,10 +66,10 @@ WSGI_APPLICATION = 'Config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres.uaveomsotjezpqppsqqr',
-        'PASSWORD': 'eduaradm123',
-        'HOST': 'aws-0-us-east-1.pooler.supabase.com',
+        'NAME': 'SoftNaturDB',
+        'USER': 'eduarAdm',
+        'PASSWORD': 'afg98br5pl2m',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

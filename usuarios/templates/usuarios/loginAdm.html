@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenedor-form-adm">
+    <h2>Login Admin</h2>
+    <form method="post" class="contenedor-login-adm">
+        {% csrf_token %}
+
+        <label for="nombre" class="btn-txt">Nombre:</label>
+        {{ form.nombre }}
+
+        <label for="clave" class="btn-txt">Clave:</label>
+        {{ form.clave }}
+
+        <button type="submit" class="btn-ingresar">Ingresar</button>
+    </form>
+
+    {% if mensaje %}
+    <p style="color:red; margin-top: 10px;">{{ mensaje }}</p>
+    {% endif %}
+</div>
+</body>
+</html>

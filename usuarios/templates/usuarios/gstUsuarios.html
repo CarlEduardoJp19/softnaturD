@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+</head>
+<body>
+    <header>
+        <a class="volver" href="{% url 'usuarios:dashboard' %}">← Volver al dashboard</a>
+    </header>
+    <section>
+        {% for usuario in usuarios %}
+        <nav>
+            <ul>
+                <li>{{usuario.nombre}}</li>
+                <li>{{usuario.clave}}</li>
+                <li>{{usuario.email}}</li>
+                <li>{{usuario.numTelefono}}</li>
+                <li>{{usuario.rol}}</li>
+            </ul>
+        </nav>
+    </section>
+    {% endfor %}
+</body>
+</html>

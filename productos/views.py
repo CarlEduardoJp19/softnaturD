@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .forms import registerProduc
 from .models import Producto
 
 # Create your views here.
 
 def productos(request):
-    return render(request, 'productos/producto.html')
+    products = Producto.objects.all()
+    return render(request, 'productos/producto.html', {'products': products})
 
 def list_produc(request):
     return render(request, 'productos/list_produc.html')
@@ -22,6 +23,7 @@ def registerProducts(request):
                 precio = form.cleaned_data['precio'],
                 imgProduc = form.cleaned_data['imgProduc'],
             )
+            return redirect('productos:listProduc')
     else:
         form = registerProduc()
     return render(request, 'productos/list_produc.html', {'form': form})
@@ -34,4 +36,15 @@ def producto(request):
     # Retorna la plantilla 'producto.html' y le pasa la variable 'usuario_id'
     # Esto permite saber si el usuario está logueado o no en el HTML
     return render(request, "todo/producto.html", {"usuario_id": usuario_id})
+
+
+def productos_view(request):
+    products = Producto.objects.all()
+    usuario_id = request.session.get('usuario_id')  # <-- Obtenemos el ID
+
+    return render(request, 'productos/producto.html', {
+        'products': products,
+        'usuario_id': usuario_id  # <-- Lo enviamos al template
+    })
+
 

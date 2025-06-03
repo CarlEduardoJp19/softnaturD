@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import usuario
+from productos.models import Producto
 from .forms import loginForm, registerForm
 from django.contrib.auth.hashers import make_password, check_password
 
 # Create your views here.
-
-def login(request):
-    return render(request, 'usuarios/login.html')
 
 def register(request):
     return render(request, 'usuarios/register.html')
@@ -19,6 +17,16 @@ def contacto(request):
 
 def index(request):
     return render(request,"usuarios/index.html")
+
+def dashboard(request):
+    return render(request,"usuarios/dashboard.html")
+
+def gstUsuarios(request):
+    usuarios = usuario.objects.all();
+    return render(request,"usuarios/gstUsuarios.html", {'usuarios': usuarios})
+
+def loginAdm(request):
+    return render(request, "usuarios/loginAdm.html")
 
 
 def register_view(request):
@@ -58,11 +66,8 @@ def login_view(request):
                     request.session['usuario_id'] = user.id  # Guarda el ID en la sesión
                     request.session['nombre'] = user.nombre  # Guarda el nombre en la sesión
                     print("Usuario autenticado:", request.session.get('usuario_id'))  # Depuración
-                
-                    if user.rol == 'admin':
-                        return redirect('dashboard')
-                    else:
-                        return redirect('productos:producto')
+
+                    return redirect('productos:producto')
                 else:   
                     mensaje = "contraseña incorrecta"
             except usuario.DoesNotExist:
@@ -71,6 +76,28 @@ def login_view(request):
         form = loginForm()
     return render(request, 'usuarios/login.html', {'form': form, 'mensaje': mensaje})
 
+def loginAdmin(request):
+    mensaje  = ""
+    if request.method == 'POST':
+        form = loginForm(request.POST)
+        if form.is_valid():
+            nombre = form.cleaned_data['nombre']
+            clave = form.cleaned_data['clave']
+            try:
+                user = usuario.objects.get(nombre = nombre)
+                if check_password(clave, user.clave):
+                    if user.rol == "admin":
+                        request.session['usuario_id'] = user.id
+                        return redirect('usuarios:dashboard')
+                    else:
+                        mensaje = "No tienes permisos de administrador"
+                else:
+                    mensaje = "Contraseña incorrecta"
+            except usuario.DoesNotExist:
+                mensaje = "Administrador no encontrado"
+    else:
+        form = loginForm()
+    return render(request, 'usuarios/loginAdm.html', {'form': form, 'mensaje': mensaje})
 
 def logout_view(request):
     # Borra todos los datos de la sesión, es decir, "cierra sesión"

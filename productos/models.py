@@ -13,6 +13,6 @@ class Producto(models.Model):
     descripcion = models.CharField(max_length=80)
     Categoria = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
-    imgProduc = models.ImageField(upload_to='uploads/products')
+    imgProduc = models.ImageField(upload_to='uploads/products/')
 
 

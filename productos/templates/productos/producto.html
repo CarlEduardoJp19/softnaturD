@@ -2,20 +2,15 @@
 {% load static %}
 
 {% block content %}
-    <nav class="navbar">
-        <img src="uploads/products/logoPrin.png" alt="Logo">
-        <div class="search-box">
-            <input type="text" placeholder="¿Qué estás buscando?">
-            <i class="fa fa-search"></i>
-        </div>
-        <div class="nav-links">
-            {% comment %} Aqui realizamos un condicional para que cambie cuando inicia de sesion a cerrar sesion {% endcomment %}
-            {% if usuario_id %}
-                <a href="{% url 'usuarios:logout' %}">Cerrar sesión</a>
-            {% else %}
-                <a href="{% url 'usuarios:login' %}">Iniciar sesión</a>
-            {% endif %}
-            <a href="{% url 'usuarios:nosotros' %}">Nosotros</a>
+<nav class="navbar">
+    <img src='./media/uploads/products/logoPrin.png' alt="Logo">
+    <div class="search-box">
+        <input type="text" placeholder="¿Qué estás buscando?">
+        <i class="fa fa-search"></i>
+    </div>
+    <div class="nav-links">
+        {% if usuario_id %}
+            <a href="{% url 'usuarios:logout' %}">Cerrar sesión</a>
             <div class="dropdown">
                 <a href="{% url 'productos:producto' %}">Productos</a>
                 <div class="dropdown-content">
@@ -27,31 +22,41 @@
                     <a href="#Purgantes">Purgantes</a>
                 </div>
             </div>
-            <a href="{% url 'usuarios:contacto' %}">Contactanos</a>
-        </div>
-        <div class="icons">
-            <i class="fa fa-question-circle"></i>
-            <i class="fa fa-user"></i>
-            <i class="fa fa-shopping-cart"></i>
-        </div>
-    </nav>
-    <div>
-        <section class="Productos">
-            {% for product in products %}
-            {% if product_is_sale %}
-            <div class="container-prduc">
-                <div class="container-principal">
-                    <img class="img-produc" src="{{product.img.url}}">
-                </div>
+        {% else %}
+            <a href="{% url 'usuarios:nosotros' %}">Nosotros</a>
+            <a href="{% url 'usuarios:contacto' %}">Contacto</a>
+            <a href="{% url 'usuarios:login' %}">Iniciar sesión</a>
+        {% endif %}
+    </div>
+    <div class="icons">
+        <i class="fa fa-question-circle"></i>
+        <i class="fa fa-user"></i>
+        <i class="fa fa-shopping-cart"></i>
+    </div>
+</nav>
+<section class="Productos">
+    {% for product in products %}
+        <div class="container-produc">
+            <div class="container-principal">
+                <img class="img-produc" src="{{product.imgProduc.url}}">
                 <div class="container-info">
-                    <h4 class="name-produc" src="{{product.name}}"></h4>
-                    <h6 class="price-produc" src="{{product.price}}"></h6>
+                    <h4 class="name-produc">{{product.nombProduc}}</h4>
+                    <h5 class="desc-produc">{{product.descripcion}}</h5>
+                    <h5 class="price-produc">${{product.precio}}</h5>
+                    <button class="btn-comprar">Comprar</button>
                 </div>
             </div>
-        </section>
-    <footer>
-        <p>&copy;Página Tienda Naturista Los girasoles 2025</p>
-    </footer>
-    {% endif %}
+        </div>
     {% endfor %}
+</section>
 {% endblock %}
+
+{% block footer %}
+<footer>
+    <p>&copy;Página Tienda Naturista Los girasoles 2025</p>
+</footer>
+{% endblock %}
+
+
+<script src="{% static 'productos/JS/boton.js' %}"></script>
+
