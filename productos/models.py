@@ -14,5 +14,7 @@ class Producto(models.Model):
     Categoria = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     imgProduc = models.ImageField(upload_to='uploads/products/')
+    def __str__(self):
+        return self.nombProduc
 
 

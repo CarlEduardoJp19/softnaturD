@@ -66,9 +66,9 @@ WSGI_APPLICATION = 'Config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'SoftNaturDB',
-        'USER': 'eduarAdm',
-        'PASSWORD': 'afg98br5pl2m',
+        'NAME': 'softnaturDB',
+        'USER': 'sofiaAdm',
+        'PASSWORD': 'nico123',
         'HOST': 'localhost',
         'PORT': '5432',
     }

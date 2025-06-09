@@ -10,11 +10,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color:  #11db51; 
 }
 
 /* Encabezado */
 header {
-    background-color: rgb(61, 221, 61);
+    background-color: #0b8b2f; /* Verde medio tipo navbar */
     padding: 1rem 2rem;
     color: white;
     display: flex;
@@ -24,15 +25,17 @@ header {
 
 .logout-button {
     background-color: white;
-    color: rgb(61, 221, 61);
+    color: #0b8b2f;
     padding: 8px 12px;
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
+    border: none;
 }
 
 .logout-button:hover {
     background-color: #e0e0e0;
+    color: #006400;
 }
 
 /* Contenido principal */
@@ -44,10 +47,10 @@ header {
 /* Menú lateral */
 .menu-column {
     width: 220px;
-    background-color: #2e7d32;
+    background-color: #11db51;/* Igual que fondo principal */
     color: white;
     padding: 1rem;
-    height: 580x;
+    height: 100%; /*tenia 580x*/
 }
 
 .menu-column ul {
@@ -66,12 +69,13 @@ header {
 }
 
 .menu-column a:hover {
-    color: rgb(224, 227, 139);
+    color: #0b8b2f;
 }
 
 /* Contenido derecho */
 .content-column {
     flex: 1;
     padding: 2rem;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
+    color: #333;
 }

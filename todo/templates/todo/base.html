@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +8,7 @@
     <title>Mi sitio web</title>
     {% load static %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'todo/css/estilos.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="{% static 'productos/css/estilos.css' %}?v={{ timestamp }}">
 </head>
 <body>
     {% block content %}
